@@ -3,13 +3,12 @@ pipeline {
     environment {
         //be sure to replace "willbla" with your own Docker Hub username
         DOCKER_IMAGE_NAME = "willbla/train-schedule"
-        GRADLE =  tool name: 'gradle-8.4', type: 'gradle'
     }
     stages {
         stage('Build') {
             steps {
                 echo 'Running build automation'
-                sh 'gradle build --no-daemon'
+                sh './gradlew build --no-daemon'
                 archiveArtifacts artifacts: 'build/dist/trainSchedule.zip'
             }
         }
