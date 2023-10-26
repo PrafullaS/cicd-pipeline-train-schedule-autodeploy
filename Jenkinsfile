@@ -3,6 +3,7 @@ pipeline {
     environment {
         //be sure to replace "willbla" with your own Docker Hub username
         DOCKER_IMAGE_NAME = "willbla/train-schedule"
+        GRADLE =  tool name: 'gradle-8.4', type: 'gradle'
     }
     stages {
         stage('Build') {
